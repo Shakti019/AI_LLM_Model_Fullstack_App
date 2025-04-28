@@ -1,0 +1,221 @@
+.user-profile {
+  padding: 0px;
+  border-radius: 10px;
+}
+
+.profile-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.personal-info,
+.agency-info,
+.location-info,
+.activity-stats {
+  padding: 1px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+h2 {
+  color: #000000; /* Pure black */
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+h3 {
+  color:black;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 10px 0;
+  color:black;
+}
+
+strong {
+  color: black;
+}
+
+.profile-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 10px;
+  overflow: auto;
+  height: 100%;
+  background-color: #ffffff; /* Pure white background */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.profile-container::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #f2f2f2; /* Light gray background */
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 0.5rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000; /* Pure black */
+  border: 2px solid #ffffff; /* Pure white border */
+}
+
+.avatar-icon {
+  font-size: 45px;
+  color: #ffffff; /* Pure white */
+}
+
+.profile-header h2 {
+  color: #000000; /* Pure black */
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.user-category {
+  color: #404040; /* Dark gray */
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+}
+
+.agency-name {
+  color: #202020; /* Very dark gray */
+  font-weight: 500;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.profile-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.profile-card:hover {
+  transform: none;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 0.5rem;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.25rem;
+  border-radius: 8px;
+}
+
+.info-item:hover {
+  background-color: transparent;
+}
+
+.info-item svg {
+  font-size: 1.2rem;
+}
+
+.label {
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.25rem;
+  padding: 0 0.5rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem;
+}
+
+.stat-icon {
+  font-size: 1rem;
+}
+
+.stat-value {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin: 0 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error {
+  color: #f44336;
+}
+
+@media (max-width: 768px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .stats-grid {
+    gap: 1rem;
+  }
+}
+
+.agency-name-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.card-content {
+  max-height: 200px;
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.card-content::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+} 

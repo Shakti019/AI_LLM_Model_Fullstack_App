@@ -1,0 +1,42 @@
+/* Navbar Container */
+.navbar {
+    display: flex; /* Display buttons horizontally */
+    flex-wrap: wrap; /* Wrap buttons if they overflow */
+    gap: 30px; /* Space between buttons */
+    padding: 10px;
+    background-color: black; /* Light background */
+    border-radius: 10px; /* Rounded corners */
+    margin-top: 10px; /* Space above the navbar */
+  }
+  
+  /* Navbar Button */
+  .nav-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color:white; /* Dark text */
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  /* Hover Effect */
+  .nav-button:hover {
+     background-color: white;
+     color:black;
+     transition: 1s;
+     box-shadow: white 3px 3px 8px;
+  }
+  
+  /* Icon Styling */
+  .nav-icon {
+    margin-right: 5px; /* Space between icon and label */
+    font-size: 18px; /* Icon size */
+  }
+  
+  /* Label Styling */
+  .nav-label {
+    font-size: 14px; /* Label size */
+  }

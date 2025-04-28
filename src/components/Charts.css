@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.charts-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px 0 32px 0;
+  background: linear-gradient(120deg, #e0e7ff 0%, #f8fafc 100%);
+  animation: gradientMove 10s ease-in-out infinite alternate;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.dashboard-title {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  animation: fadeInDown 0.8s;
+}
+
+.dashboard-description {
+  text-align: center;
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin-bottom: 28px;
+  animation: fadeInDown 1.1s;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 1.2s;
+}
+
+.chart-section {
+  animation: fadeInUp 0.9s both;
+  transform: scale(0.98) translateY(20px);
+  opacity: 1;
+  background: rgba(255,255,255,0.82);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(52, 152, 219, 0.10);
+  padding: 22px 24px 18px 24px;
+  transition: box-shadow 0.25s, transform 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.chart-section:hover {
+  box-shadow: 0 16px 32px 0 rgba(52, 152, 219, 0.18), 0 1.5px 8px rgba(44, 62, 80, 0.10);
+  transform: translateY(-6px) scale(1.012);
+  z-index: 2;
+}
+
+.chart-section.featured,
+.chart-section.bottom-featured {
+  grid-column: span 2;
+  background: linear-gradient(90deg, #e3f0ff 0%, #f8fbff 100%);
+  box-shadow: 0 12px 32px 0 rgba(52, 152, 219, 0.13);
+  animation: fadeInDown 1.1s;
+}
+
+.chart-content {
+  height: 100%;
+}
+
+.chart-wrapper {
+  height: 320px;
+  position: relative;
+  background: linear-gradient(120deg, #f0f4fa 0%, #eaf1fb 100%);
+  border-radius: 12px;
+  padding: 8px;
+  box-sizing: border-box;
+  animation: fadeIn 1.2s;
+}
+
+.chart-section h2 {
+  font-size: 1.18rem;
+  margin-bottom: 7px;
+  color: #1976d2;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  animation: fadeInDown 1.2s;
+}
+
+.chart-section p {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-bottom: 15px;
+  animation: fadeInDown 1.3s;
+}
+
+/* Chart "glow" effect on hover */
+.chart-section:hover .chart-wrapper {
+  box-shadow: 0 0 0 4px #e3f0ff, 0 0 16px 0 #1976d244;
+  border-radius: 12px;
+  transition: box-shadow 0.25s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0 10px;
+  }
+  .chart-section.featured,
+  .chart-section.bottom-featured {
+    grid-column: span 1;
+  }
+  .chart-wrapper {
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .charts-container {
+    padding: 10px 0;
+  }
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .chart-wrapper {
+    height: 180px;
+  }
+  .chart-section {
+    padding: 12px 6px 10px 6px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Custom Scrollbar (hidden for a clean look) */
+.charts-grid, .charts-container {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+.charts-grid::-webkit-scrollbar,
+.charts-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Subtle animated border for featured sections */
+.chart-section.featured::before,
+.chart-section.bottom-featured::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  border: 2px solid transparent;
+  background: linear-gradient(120deg, #a1c4fd, #c2e9fb, #f8fbff, #a1c4fd);
+  background-size: 400% 400%;
+  z-index: 1;
+  animation: borderMove 8s linear infinite;
+  opacity: 0.18;
+}
+@keyframes borderMove {
+  0% { background-position: 0% 50%;}
+  50% { background-position: 100% 50%;}
+  100% { background-position: 0% 50%;}
+}
+
+/* Chart.js tooltip override for glass effect */
+.chartjs-tooltip {
+  background: rgba(255,255,255,0.95) !important;
+  color: #2c3e50 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px #1976d222 !important;
+  font-size: 0.98rem !important;
+  border: 1px solid #e3f0ff !important;
+}
+
+/* Add a soft fade-in for each chart-section */
+.chart-section:nth-child(1) { animation-delay: 0.1s; }
+.chart-section:nth-child(2) { animation-delay: 0.2s; }
+.chart-section:nth-child(3) { animation-delay: 0.3s; }
+.chart-section:nth-child(4) { animation-delay: 0.4s; }
+.chart-section:nth-child(5) { animation-delay: 0.5s; }
+.chart-section:nth-child(6) { animation-delay: 0.6s; }
+.chart-section:nth-child(7) { animation-delay: 0.7s; }

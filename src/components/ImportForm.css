@@ -1,0 +1,287 @@
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(120deg, #f7faff 0%, #e3f0ff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.form-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.form-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.form-content {
+  background: #fff;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 123, 255, 0.15), 0 1.5px 8px rgba(0,0,0,0.08);
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: formSlideIn 0.3s ease-out;
+}
+
+.form-overlay.visible .form-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.form-overlay.hidden .form-content {
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+.form-overlay::-webkit-scrollbar,
+.form-content::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.close-btn {
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  background-color: black;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Import-notation {
+  color: black;
+  opacity: 0.6;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Import-product-details,
+.Import-location-details,
+.Import-market-information {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.Import-product-details h2,
+.Import-location-details h2,
+.Import-market-information h2 {
+  grid-column: span 2;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.Import-product-details h2::before,
+.Import-location-details h2::before,
+.Import-market-information h2::before {
+  content: "📦";
+  margin-right: 8px;
+  font-size: 1.1em;
+}
+.Import-location-details h2::before { content: "📍"; }
+.Import-market-information h2::before { content: "📊"; }
+
+.Import-label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.Import-Input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.Import-option-values {
+  font-size: 14px;
+}
+
+.Import-btn {
+  grid-column: span 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.Import-reset-data,
+.Import-btn button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.Import-reset-data {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.Import-btn button:hover,
+.Import-reset-data:hover {
+  background: linear-gradient(90deg, #0056b3 0%, #00aaff 100%);
+  box-shadow: 0 4px 16px rgba(0,123,255,0.15);
+}
+
+/* Add focus styles for inputs */
+.Import-Input:focus {
+  outline: none;
+  border-color: #00c6ff;
+  box-shadow: 0 0 0 2.5px rgba(0, 198, 255, 0.25);
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+  .form-content {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .Import-product-details,
+  .Import-location-details,
+  .Import-market-information {
+    grid-template-columns: 1fr;
+  }
+
+  .Import-btn {
+    flex-direction: column;
+  }
+
+  .Import-btn button {
+    width: 100%;
+  }
+}
+
+/* Add animation for form appearance */
+@keyframes formSlideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.form-content {
+  animation: formSlideIn 0.3s ease-out;
+}
+
+/* Step indicator styles */
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  gap: 8px;
+  border: 1.5px solid #007bff;
+  border-radius: 20px;
+  padding: 6px 0;
+  background: #f7faff;
+}
+.step-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+  background: #e3f0ff;
+  transition: background 0.3s;
+}
+.step-dot.active {
+  background: linear-gradient(135deg, #007bff 60%, #00c6ff 100%);
+  border-color: #0056b3;
+  box-shadow: 0 0 0 3px #b3e0ff;
+}
+
+/* Step transition animation */
+.step-animate {
+  animation: fadeInStep 0.4s;
+}
+@keyframes fadeInStep {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Submission success animation */
+.success-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  animation: popIn 0.5s;
+}
+@keyframes popIn {
+  from { transform: scale(0.7) translate(-50%, -50%);}
+  to { transform: scale(1) translate(-50%, -50%);}
+}
+.checkmark {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid #28a745;
+  position: relative;
+  margin-bottom: 1rem;
+  background: #eaffea;
+}
+.checkmark::after {
+  content: '';
+  position: absolute;
+  left: 13px;
+  top: 18px;
+  width: 14px;
+  height: 24px;
+  border-right: 4px solid #28a745;
+  border-bottom: 4px solid #28a745;
+  transform: rotate(45deg);
+}
+
+.success-box {
+  background: #fff;
+  border-radius: 16px;
+  border: 3px solid #28a745;
+  padding: 2rem 3rem;
+  box-shadow: 0 2px 16px rgba(40,167,69,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: popIn 0.5s;
+}

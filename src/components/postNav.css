@@ -1,0 +1,50 @@
+.post-controller {
+    width: 100%;
+    padding: 10px;
+}
+
+.Nav-buttons {
+    display: flex;
+    gap: 140px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    border-color: black;
+    
+    
+}
+
+.Nav-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.4s ease;
+    border:black 1px;
+}
+
+.Nav-buttons button:hover {
+    background-color: #e0e0e0;
+   
+}
+
+.Nav-buttons button.active {
+    background-color: black;
+    color: white;
+    transition: 1s;
+    box-shadow: black 3px 3px 5px;
+}
+
+.Nav-buttons button.active strong,
+.Nav-buttons button.active .button-icon {
+    color: white;
+}
+
+.component-container {
+    margin-top: 10px;
+}
+.btn-name button.active{
+    color:white;
+}
+
+

@@ -1,0 +1,221 @@
+.form-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: black 10px 10px 10px;
+    border: solid  1px black;
+    transition: all 0.8s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.Account {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.magic {
+    color: black;
+    font-weight: bold;
+}
+
+.progress-bar {
+    height: 6px;
+    background: #f0f0f0;
+    border-radius: 3px;
+    margin: 1.5rem auto;
+    width: 80%;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, black, black);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+}
+
+.step-indicator {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.form-step {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.form-step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-weight: 500;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.input-box, .select-input {
+    padding: 14px;
+    border: 2px solid #e1e1e1;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    width: 100%;
+}
+
+.input-box:focus, .select-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    outline: none;
+}
+
+.step-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.next-btn, .prev-btn, .submit-bt {
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.next-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    margin-left: auto;
+}
+
+.next-btn:hover {
+    background: black;
+    transform: translateY(-2px);
+}
+
+.prev-btn {
+    background: transparent;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+.prev-btn:hover {
+    background: #f5f5f5;
+}
+
+.submit-bt {
+    background: linear-gradient(45deg, black, #00bfff);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.submit-bt:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+.submit-bt:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.alert {
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 1rem 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.error {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #d32f2f;
+    border: 1px solid rgba(211, 47, 47, 0.2);
+}
+
+.success {
+    background-color: rgba(0, 200, 83, 0.1);
+    color: #00c853;
+    border: 1px solid rgba(0, 200, 83, 0.2);
+}
+
+/* Animation for form submission */
+@keyframes slideUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .form-container {
+        margin: 1rem;
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+
+    .form-group {
+        grid-template-columns: 1fr;
+    }
+
+    .Account {
+        font-size: 1.8rem;
+    }
+
+    .progress-bar {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .step-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .next-btn, .prev-btn, .submit-bt {
+        width: 100%;
+    }
+}

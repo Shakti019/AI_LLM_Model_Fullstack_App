@@ -1,0 +1,533 @@
+/* Dashboard.css */
+
+/* Base styles */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f7fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: filter 0.3s ease;
+  background: linear-gradient(120deg, #e0e7ff 0%, #f8fafc 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 8s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Blur effect for modals */
+.dashboard-container.background-blur {
+  filter: blur(4px);
+}
+
+/* Navbar styling */
+.navbar-container {
+  width: 100%;
+  height: 60px;
+  background-color: #2c3e50;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+/* Main content layout */
+.dashboard-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  padding: 15px;
+  gap: 15px;
+  position: relative;
+}
+
+.dashboard-content::before {
+  content: "";
+  position: absolute;
+  left: 290px;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background: linear-gradient(to bottom, #e0e7ff 0%, #c2e9fb 100%);
+  opacity: 0.25;
+  z-index: 1;
+}
+
+.dashboard-content::after {
+  content: "";
+  position: absolute;
+  right: 300px;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background: linear-gradient(to bottom, #e0e7ff 0%, #c2e9fb 100%);
+  opacity: 0.25;
+  z-index: 1;
+}
+
+/* Sidebar styles */
+.sidebar-left {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.sidebar-right {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.7);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+  border: 2px solid;
+  border-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  border-image-slice: 1;
+  padding: 18px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Quick stats cards */
+.quick-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  padding: 12px 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  margin-bottom: 8px;
+  border-left: 4px solid #3498db;
+  gap: 12px;
+}
+
+.stat-card .stat-icon {
+  font-size: 28px;
+  margin-right: 10px;
+  opacity: 0.85;
+}
+
+.stat-card.blue { border-left-color: #3498db; }
+.stat-card.orange { border-left-color: #f39c12; }
+.stat-card.green { border-left-color: #27ae60; }
+
+.stat-card h4 {
+  margin: 0 0 10px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 5px 0;
+  color: #2c3e50;
+}
+
+.stat-change {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+.stat-change.urgent {
+  color: #e74c3c;
+}
+
+/* Operations dashboard */
+.operations-dashboard {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.operations-tabs {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Recent activity */
+.recent-activity {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.recent-activity h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Analytics section */
+.analytics-section {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.analytics-section h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.analytics-card {
+  margin-bottom: 15px;
+}
+
+.analytics-card h4 {
+  margin: 0 0 10px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.chart-placeholder {
+  height: 80px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.mock-chart {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+}
+
+.trend-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #3498db;
+}
+
+.trend-line.up:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid #2ecc71;
+  transform: translateX(-50%);
+}
+
+.trend-line.down:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 10px solid #e74c3c;
+  transform: translateX(-50%);
+}
+
+.analytics-summary {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin: 5px 0 0 0;
+}
+
+/* Notifications section */
+.notifications-section {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  flex: 1;
+}
+
+.notifications-section h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.notification {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.notification p {
+  margin: 0 0 5px 0;
+  font-size: 13px;
+}
+
+.notification-time {
+  font-size: 11px;
+  color: #95a5a6;
+}
+
+.notification.urgent p {
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+.notification.urgent {
+  animation: pulseUrgent 1.5s infinite alternate;
+}
+@keyframes pulseUrgent {
+  from { box-shadow: 0 0 0 0 #e74c3c33; }
+  to { box-shadow: 0 0 8px 4px #e74c3c33; }
+}
+
+/* Scrollable areas */
+.scrollable {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd #f5f5f5;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 6px;
+}
+
+/* Profile card */
+.profile-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+  padding: 18px 12px;
+  margin-bottom: 10px;
+}
+
+/* Quick links */
+.quick-links {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+  padding: 12px 15px;
+  margin-bottom: 10px;
+}
+
+.quick-links h4 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 15px;
+}
+
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quick-links li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  transition: background 0.2s;
+  border-radius: 5px;
+  padding: 4px 6px;
+}
+
+.quick-links li:hover {
+  background: #f0f4fa;
+}
+
+.quick-links .icon {
+  color: #3498db;
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.quick-links a {
+  color: #2c3e50;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.quick-links a:hover {
+  color: #2980b9;
+}
+
+/* Main summary card */
+.summary-card {
+  background: linear-gradient(90deg, #e3f0ff 0%, #f8fbff 100%);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+  padding: 18px 22px;
+  margin-bottom: 10px;
+}
+
+.summary-card h2 {
+  margin: 0 0 6px 0;
+  color: #2c3e50;
+  font-size: 22px;
+}
+
+.summary-card p {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 15px;
+}
+
+/* Analytics chart placeholder */
+.main-analytics .chart-placeholder.large {
+  height: 120px;
+  background: linear-gradient(90deg, #f0f4fa 0%, #eaf1fb 100%);
+  border-radius: 6px;
+  margin: 10px 0 0 0;
+  position: relative;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
+}
+
+.mock-chart-bar {
+  width: 90%;
+  height: 60px;
+  margin: 20px auto;
+  background: repeating-linear-gradient(
+    to right,
+    #3498db 0 10%,
+    #eaf1fb 10% 20%
+  );
+  border-radius: 4px;
+}
+
+/* Recent shipments table */
+.recent-shipments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.recent-shipments-table th, .recent-shipments-table td {
+  padding: 7px 10px;
+  text-align: left;
+}
+
+.recent-shipments-table thead {
+  background: #f0f4fa;
+}
+
+.recent-shipments-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  opacity: 0;
+  animation: fadeInRow 0.7s forwards;
+}
+
+.recent-shipments-table tbody tr:nth-child(1) { animation-delay: 0.1s; }
+.recent-shipments-table tbody tr:nth-child(2) { animation-delay: 0.2s; }
+.recent-shipments-table tbody tr:nth-child(3) { animation-delay: 0.3s; }
+
+.recent-shipments-table td.delayed { color: #e74c3c; font-weight: 500; }
+.recent-shipments-table td.in-transit { color: #f39c12; font-weight: 500; }
+.recent-shipments-table td.delivered { color: #27ae60; font-weight: 500; }
+
+@keyframes fadeInRow {
+  to { opacity: 1; }
+}
+
+/* Calendar section */
+.calendar-section {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.calendar-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+}
+
+.calendar-placeholder {
+  background: #f9f9f9;
+  border-radius: 4px;
+  padding: 12px;
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+/* Add to your card styles (already present, but enhance) */
+.profile-card:hover,
+.quick-links:hover,
+.quick-stats:hover,
+.analytics-section:hover,
+.calendar-section:hover,
+.notifications-section:hover,
+.summary-card:hover,
+.recent-activity:hover,
+.operations-dashboard:hover {
+  box-shadow: 0 16px 32px 0 rgba(52, 152, 219, 0.18), 0 1.5px 8px rgba(44, 62, 80, 0.10);
+  transform: translateY(-4px) scale(1.015);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.stat-card.blue .stat-value {
+  text-shadow: 0 0 8px #a1c4fd77;
+}
+.stat-card.green .stat-value {
+  text-shadow: 0 0 8px #b7eacb77;
+}
+.stat-card.orange .stat-value {
+  text-shadow: 0 0 8px #ffe5b477;
+}
+.stat-card .stat-value {
+  transition: text-shadow 0.2s;
+}
